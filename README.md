@@ -1,4 +1,4 @@
-# stock-data-visualizer
+# testing-wikipedia
 
 installation
 
