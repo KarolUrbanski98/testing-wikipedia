@@ -6,11 +6,20 @@ from selenium import webdriver
 
 @pytest.fixture(scope="function")
 def driver():
-    driver = webdriver.Firefox()
+    driver = get_driver("firefox")
     driver.get("https://www.wikipedia.org/")
     driver.maximize_window()
     yield driver
     driver.quit()
+
+
+def get_driver(browser):
+    if browser == "firefox":
+        return webdriver.Firefox()
+    elif browser == "chrome":
+        return webdriver.Chrome()
+    else:
+        raise ValueError(f"Not supported browser: {browser}")
 
 
 def pytest_generate_tests(metafunc):
