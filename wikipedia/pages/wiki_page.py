@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as ec
 class WikiPage:
     def __init__(self, driver):
         self._driver = driver
-        self._wait = WebDriverWait(self._driver, 10)
+        self._wait = WebDriverWait(self._driver, 15)
         self._logger = logging.getLogger()
 
     def find(self, locator):

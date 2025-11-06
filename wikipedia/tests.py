@@ -1,3 +1,5 @@
+import pytest
+
 from wikipedia.pages.welcome_page import WelcomePage
 from wikipedia.pages.article_page import ArticlePage
 from wikipedia.pages.main_page import MainPage
@@ -11,6 +13,7 @@ def test_wikipedia_search(driver, search_terms):
     article_page.wait_for_title_and_compare_with_search_term(search_terms)
 
 
+@pytest.mark.skip(reason="Disabled due to CAPTCHA change in Wikipedia.")
 def test_password_matching_verification(driver):
     welcome_page = WelcomePage(driver)
     welcome_page.click_english_version_link()
